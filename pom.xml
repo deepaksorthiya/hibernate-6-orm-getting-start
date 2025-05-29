@@ -22,7 +22,7 @@
         <junit.bom.version>5.12.2</junit.bom.version>
         <h2db.version>2.3.232</h2db.version>
         <mysqldb.version>9.3.0</mysqldb.version>
-        <postgresdb.version>42.7.5</postgresdb.version>
+        <postgresdb.version>42.7.6</postgresdb.version>
         <lombok.version>1.18.38</lombok.version>
         <logback.version>1.5.18</logback.version>
         <datasource.proxy.version>1.10.1</datasource.proxy.version>
