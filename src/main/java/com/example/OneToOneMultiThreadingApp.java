@@ -18,7 +18,7 @@ public class OneToOneMultiThreadingApp {
         ExecutorService executor = null;
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory(new Class[]{UserProfile.class, ContactInfo.class}, Database.H2);
         try {
-            executor = Executors.newFixedThreadPool(100);
+            executor = Executors.newVirtualThreadPerTaskExecutor();
             for (int i = 0; i < 100; i++) {
                 executor.submit(() -> {
                     System.out.println(Thread.currentThread().getName() + " Started");
@@ -29,7 +29,7 @@ public class OneToOneMultiThreadingApp {
                         userProfile.setFirstName(userProfile.getId() + userProfile.getFirstName());
                         userProfile.setEmail(userProfile.getId() + userProfile.getEmail());
                     });
-                    System.out.println(Thread.currentThread().getName() + " Finished");
+                    System.out.println(Thread.currentThread() + " Finished");
                 });
             }
         } finally {
